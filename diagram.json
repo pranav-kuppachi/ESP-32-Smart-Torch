@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "author": "Smart Torch Centered",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -4.76, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor",
+      "id": "ldr1",
+      "top": 120,
+      "left": -40,
+      "attrs": { "value": "10k" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 200.3, "left": 143.8, "attrs": {} },
+    {
+      "type": "wokwi-button",
+      "id": "btn1",
+      "top": 120,
+      "left": 260,
+      "attrs": { "label": "MODE" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledBlue",
+      "top": -42,
+      "left": 157.4,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledWhite",
+      "top": -42,
+      "left": 301.4,
+      "attrs": { "color": "white" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledCyan",
+      "top": -42,
+      "left": 234.2,
+      "attrs": { "color": "cyan" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rBlue",
+      "top": 3.95,
+      "left": 124.8,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rWhite",
+      "top": 3.95,
+      "left": 268.8,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rCyan",
+      "top": 3.95,
+      "left": 192,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -51.4,
+      "left": -105.6,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr2",
+      "top": -140.8,
+      "left": 29.6,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "ldr1:SIG", "esp:35", "green", [] ],
+    [ "ldr1:VCC", "esp:3V3", "red", [] ],
+    [ "pot1:GND", "esp:GND", "black", [] ],
+    [ "btn1:1", "esp:14", "orange", [] ],
+    [ "btn1:2", "esp:GND", "black", [] ],
+    [ "esp:25", "rBlue:1", "blue", [] ],
+    [ "rBlue:2", "ledBlue:A", "blue", [] ],
+    [ "ledBlue:C", "esp:GND", "black", [] ],
+    [ "rWhite:2", "ledWhite:A", "white", [] ],
+    [ "ledWhite:C", "esp:GND", "black", [] ],
+    [ "esp:27", "rCyan:1", "cyan", [] ],
+    [ "rCyan:2", "ledCyan:A", "cyan", [] ],
+    [ "ledCyan:C", "esp:GND", "black", [] ],
+    [ "esp:GND.1", "pot1:GND", "gold", [ "h0" ] ],
+    [ "pot1:SIG", "esp:34", "green", [ "v0" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "ldr2:VCC", "esp:3V3", "red", [ "h0" ] ],
+    [ "ldr2:GND", "esp:GND.1", "blue", [ "h0" ] ],
+    [ "btn2:1.l", "esp:14", "green", [ "h0" ] ],
+    [ "btn2:1.r", "esp:GND.1", "gold", [ "v0" ] ],
+    [ "rWhite:1", "esp:26", "white", [ "v0" ] ],
+    [ "ldr2:AO", "esp:35", "gray", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
